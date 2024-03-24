@@ -21,7 +21,9 @@ for your specific network condition. Throughput
 works best under a strong network, BOLA works
 best in an unstable network, wheras Dynamic
 adapts to both.
+
 I. Introduction
+
 User satisfaction is the most important aspect when
 it comes to a successful product. The same applies to
 online video streaming. Delivering a seamless, highquality video streaming experience to users on
@@ -72,7 +74,9 @@ to collect the selected bitrate (Mbps), buffer level
 (second), measured throughput (Mbps), segment
 download time (second), and segment size (byte)
 every 8 seconds and store them into a .csv file.
+
 II. Collecting Data
+
 Before we start we need to explain a certain issue
 with the collected data. When we initially start the
 collection, and sometimes throughout the collection,
@@ -93,7 +97,9 @@ such as bitrate and buffer, that we needed. The data
 collection was built into the updateMetrics()
 function which we modified to be updated every 8
 seconds.
+
 III. Results
+
 For all the table, the tables will be a condensed
 version of the results, meaning that some of the rows
 will be cut out to make the tables shorter. For each
@@ -123,10 +129,12 @@ running the video stream with Dynamic ABR.
 ![image](https://github.com/Cocovert1/DASH.js-Research/assets/94801567/c1c24207-9b73-4c49-8a6e-44f6386d8fb9)
 
 IV. Comparison
+
 Looking at the results we can notice a few
 discrepancies between the different ABR algorithms
 used. Comparing the results, we notice a few key
 differences between the algorithms.
+
 Starting with Throughput ABR. It had the clearest
 adjustment of bitrate. As soon as the throttle was
 switched from Fast3G to No Throttle, the bitrate
@@ -138,18 +146,21 @@ buffer level. Lastly, we notice that the throughput
 was limited to the maximum throughput of Fast3G
 which is 1.44 Mbps, but when No Throttle was
 turned on, it reached as high as 209 Mbps.
+
 Looking at the BOLA ABR, we can clearly see that
 when No Throttle was set the maximum bitrate was
 hit and it went back down to the minimum bitrate
 after Fast3G was turned on. We can also see that the
 bitrate was proportional to the buffer level. As the
 buffer level went up, so did the bitrate.
+
 Lastly, looking at the Dynamic ABR, we can see that
 it had the least amount of bitrate variation. The first
 run of the No Throttle, the bitrate remained the same
 whilst the buffer level increased drastically. Only on
 the second No Throttle run did the bitrate hit the
 maximum value.
+
 Comparing all three we can see that the Throughput
 ABR controls the bitrate depending on the
 throughput, whereas the BOLA ABR controls the
@@ -157,19 +168,22 @@ bitrate depending on the buffer. The Dynamic ABR
 has the worst bitrate of the three. We will be
 discussing these results in further detail in the
 discussion.
+
 V. Discussion
+
 In this section, we discuss the discrepancies between
 the results and the expected results, the possible
 reasons that could be creating irregularities, and how
 the testing could’ve been improved.
+
 A. Throughput ABR: Throughput ABR is
 described as an algorithm that controls the
 bitrate depending on the network
 throughput. 
 
 ![image](https://github.com/Cocovert1/DASH.js-Research/assets/94801567/d7c44ba3-01c1-41db-b768-91596e5bbe5e)
-
 Figure 1: Bitrate over time for Throughput ABR
+
 Looking at the graph (Figure 1) for the bitrate over
 time, we can clearly see whenever No Throttle was
 turned on, a higher bitrate was enabled. This goes
@@ -180,20 +194,21 @@ throughput limit directly limits the bitrate as we can
 see on the graph.
 
 ![image](https://github.com/Cocovert1/DASH.js-Research/assets/94801567/01c1a183-9cd5-4e16-8c07-2fd829543985)
-
 Figure 1: Throughput over time for Throughput ABR
+
 Following the graph (Figure 2) of the throughput
 over time, we can see that the bitrate increase
 directly correlates with the throughput increase. Our
 tests correctly replicate this scenario, inline with the
 theory.
+
 B. BOLA ABR: The Buffer Optimization Link
 Adaptation algorithm tries to control the
 bitrate proportionally to the buffer level.
 
 ![image](https://github.com/Cocovert1/DASH.js-Research/assets/94801567/b8a28b03-3f79-4741-9ef5-630976375dbc)
-
 Figure 3: Bitrate over time for BOLA ABR
+
 Like the Throughput ABR, we can clearly see the
 moment where No Throttle was turned on in the
 graph (Figure 3). We do notice that during the first
@@ -209,8 +224,8 @@ populate the buffer, which we can see happens in the
 graph (Figure 4) below. 
 
 ![image](https://github.com/Cocovert1/DASH.js-Research/assets/94801567/41de6190-3766-4e4f-8ee0-d5ca2383fdc6)
-
 Figure 4: Buffer Level over time for BOLA ABR
+
 As we can see around the time the bitrate went
 down, the buffer went up. We can also see that as
 soon as the buffer starts increasing drastically, the
@@ -224,8 +239,8 @@ network condition, throughput and buffer
 level included. 
 
 ![image](https://github.com/Cocovert1/DASH.js-Research/assets/94801567/1984d300-959b-4b8a-8909-d9a4d1b19544)
-
 Figure 5: Bitrate over time for Dynamic ABR
+
 Looking at the graph (Figure 5) above, we can see
 that the Dynamic ABR had the worst bitrate out of
 the three ABR algorithms. The Dynamic ABR
@@ -235,12 +250,11 @@ Looking at the graphs below we can get a sense of
 what the algorithm did. 
 
 ![image](https://github.com/Cocovert1/DASH.js-Research/assets/94801567/1f1a00f5-91a1-40f8-bd57-abbbd2f4efb5)
-
 Figure 6: Buffer Level over time for Dynamic ABR
 
 ![image](https://github.com/Cocovert1/DASH.js-Research/assets/94801567/2b956290-0e84-4741-acda-899915732ccc)
-
 Figure 7: Throughput over time for Dynamic ABR
+
 Looking at the two graphs above (Figure 6 and 7) we
 can see that although the throughput went up, the
 buffer level went down, indicative of the segments in
@@ -256,6 +270,7 @@ bitrate after. We can see this happen around the end,
 on the second No Throttle, where the bitrate went to
 the maximum value. The test are not conclusive
 enough to confirm the theory.
+
 All in all, our tests indicate that the Throughput ABR
 had the best quality video quality, which makes
 sense. The network we were using for No Throttle
@@ -271,6 +286,7 @@ can see towards the end of the video where the
 buffer level increases dramatically, and the bitrate
 had to be lowered. Dynamic has the worst bitrate of
 the three overall.
+
 The tests could be improved. For these tests, we
 collected our data in incognito mode to not cache the
 video beforehand and throttled the network using the
@@ -280,7 +296,9 @@ good as a real unstable, congested network. One way
 to make this test more credible would be to do it in a
 real unstable network, which would introduce a lot
 more random network conditions.
+
 VI. Conclusion
+
 In conclusion, we discussed the three different
 dash.js ABR algorithm used to provide the user with
 a stable and high-quality video stream even with an
@@ -301,7 +319,9 @@ case, the Throughput ABR had the best performance
 as the network we were using was already very
 stable and fast. These tests could’ve been improved
 has we used a real unstable network.
+
 VII. References
+
 [1] Anon. 2023. Adaptive bitrate streaming. (August
 2023). Retrieved November 14, 2023 from
 https://en.wikipedia.org/wiki/Adaptive_bitrate_stre
