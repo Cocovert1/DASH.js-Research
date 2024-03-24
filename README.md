@@ -79,8 +79,8 @@ collection, and sometimes throughout the collection,
 on Fast3G, a jumping gap occurs which delays the
 built in timer by a little bit. This can be seen as the
 first packet we collect starts at 9 seconds and not 8. 
-![image](https://github.com/Cocovert1/DASH.js-Research/assets/94801567/d0cf0c1e-6013-4948-9e55-af55c5566c16)
 
+![image](https://github.com/Cocovert1/DASH.js-Research/assets/94801567/d0cf0c1e-6013-4948-9e55-af55c5566c16)
 
 These slight changes in time collection are not
 severe or big enough to impact the validity of the
@@ -107,15 +107,21 @@ We will begin with the results for the ABR
 Throughput. The table below (T.1) represents the
 data collected after running the video stream with
 Throughput ABR.
+
 ![image](https://github.com/Cocovert1/DASH.js-Research/assets/94801567/1673edab-7b45-4a0e-a8a9-9f17eb544844)
+
 Next up, we will be looking at the BOLA ABR. The
 table below (T.2) represents the data collected after
 running the video stream with BOLA ABR. 
+
 ![image](https://github.com/Cocovert1/DASH.js-Research/assets/94801567/92767ebb-ced5-4dfe-9a7a-cf772c315815)
+
 Lastly, we will be looking at Dynamic ABR. The
 table below (T.3) represents the data collected after
 running the video stream with Dynamic ABR. 
+
 ![image](https://github.com/Cocovert1/DASH.js-Research/assets/94801567/c1c24207-9b73-4c49-8a6e-44f6386d8fb9)
+
 IV. Comparison
 Looking at the results we can notice a few
 discrepancies between the different ABR algorithms
@@ -160,7 +166,9 @@ A. Throughput ABR: Throughput ABR is
 described as an algorithm that controls the
 bitrate depending on the network
 throughput. 
+
 ![image](https://github.com/Cocovert1/DASH.js-Research/assets/94801567/d7c44ba3-01c1-41db-b768-91596e5bbe5e)
+
 Figure 1: Bitrate over time for Throughput ABR
 Looking at the graph (Figure 1) for the bitrate over
 time, we can clearly see whenever No Throttle was
@@ -170,7 +178,9 @@ bitrate and the quality of the video stream increase.
 Fast3G has a throughput limit of 1.44 Mbps, this
 throughput limit directly limits the bitrate as we can
 see on the graph.
+
 ![image](https://github.com/Cocovert1/DASH.js-Research/assets/94801567/01c1a183-9cd5-4e16-8c07-2fd829543985)
+
 Figure 1: Throughput over time for Throughput ABR
 Following the graph (Figure 2) of the throughput
 over time, we can see that the bitrate increase
@@ -180,7 +190,9 @@ theory.
 B. BOLA ABR: The Buffer Optimization Link
 Adaptation algorithm tries to control the
 bitrate proportionally to the buffer level.
+
 ![image](https://github.com/Cocovert1/DASH.js-Research/assets/94801567/b8a28b03-3f79-4741-9ef5-630976375dbc)
+
 Figure 3: Bitrate over time for BOLA ABR
 Like the Throughput ABR, we can clearly see the
 moment where No Throttle was turned on in the
@@ -195,7 +207,9 @@ the jump was made with a higher bitrate, BOLA tries
 to mitigate this issue by dropping the bitrate and
 populate the buffer, which we can see happens in the
 graph (Figure 4) below. 
+
 ![image](https://github.com/Cocovert1/DASH.js-Research/assets/94801567/41de6190-3766-4e4f-8ee0-d5ca2383fdc6)
+
 Figure 4: Buffer Level over time for BOLA ABR
 As we can see around the time the bitrate went
 down, the buffer went up. We can also see that as
@@ -208,7 +222,9 @@ BOLA ABR. It is a hybrid between the two
 and takes into consideration the whole
 network condition, throughput and buffer
 level included. 
+
 ![image](https://github.com/Cocovert1/DASH.js-Research/assets/94801567/1984d300-959b-4b8a-8909-d9a4d1b19544)
+
 Figure 5: Bitrate over time for Dynamic ABR
 Looking at the graph (Figure 5) above, we can see
 that the Dynamic ABR had the worst bitrate out of
@@ -217,9 +233,13 @@ algorithm is supposed to look at the complete
 network condition and tries to optimize the bitrate.
 Looking at the graphs below we can get a sense of
 what the algorithm did. 
+
 ![image](https://github.com/Cocovert1/DASH.js-Research/assets/94801567/1f1a00f5-91a1-40f8-bd57-abbbd2f4efb5)
+
 Figure 6: Buffer Level over time for Dynamic ABR
+
 ![image](https://github.com/Cocovert1/DASH.js-Research/assets/94801567/2b956290-0e84-4741-acda-899915732ccc)
+
 Figure 7: Throughput over time for Dynamic ABR
 Looking at the two graphs above (Figure 6 and 7) we
 can see that although the throughput went up, the
