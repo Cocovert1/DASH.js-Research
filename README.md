@@ -1,4 +1,4 @@
-#Research on ABR Algorithms performance
+# Research on ABR Algorithms performance
 
 Abstract – This study explores the three Adaptive
 Bitrate Algorithms (ABR) implemented over the
